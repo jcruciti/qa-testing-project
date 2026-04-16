@@ -4,34 +4,35 @@ OBJECTIVE
 This project was created to simulate real-world QA activities, including manual testing, bug reporting, and API testing.
 
 SYSTEMS TESTED
-- Web application using https://www.saucedemo.com
-- API using Reqres
+- Web application: https://www.saucedemo.com
+- API: Reqres (https://reqres.in)
 
 TEST ACTIVITIES
-- Creation of test cases
-- Execution of manual tests
-- Bug reporting
+- Creation of manual test cases
+- Execution of functional testing
+- Bug reporting and documentation
 - API testing using Postman
 
 TOOLS USED
 - Postman
 - GitHub
-- (Optional) Jira
 - Browser DevTools
+- Jira
 
 PROJECT STRUCTURE
-- test-cases/: Manual test scenarios
-- bug-reports/: Documented bugs
-- api-tests/: Postman collections
-- evidence/: Screenshots and API responses
+- test-cases/: Manual test cases and scenarios
+- bug-reports/: Documented and detailed bug reports
+- api-tests/: Postman collections and test scripts
+- evidence/: Screenshots and API response evidence
 
 HOW TO RUN API TESTS
-1. Import the Postman collection
-2. Run the requests
-3. Execute the tests in the "Tests" tab
+1. Import the Postman collection into Postman
+2. Select the desired request collection
+3. Click "Run" using Collection Runner or execute manually
+4. Validate results in the "Tests" tab
 
 KEY LEARNINGS
-- Writing structured test cases
-- Identifying and documenting bugs
-- Validating API responses
-- Organizing QA documentation professionally
+- Writing structured and clear test cases
+- Identifying, reproducing, and documenting bugs
+- Validating API responses and status codes
+- Organizing QA documentation in a professional structure
