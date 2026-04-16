@@ -1,0 +1,18 @@
+ID: TC_NEG_01
+TITLE: Access endpoint without API key
+
+PRE-CONDITION:
+No authentication header is provided
+
+STEPS:
+1. Send request to endpoint
+2. Do not include x-api-key header
+
+EXPECTED RESULT:
+Status code 401 Unauthorized
+
+ACTUAL RESULT:
+401 Unauthorized
+
+STATUS:
+PASS
