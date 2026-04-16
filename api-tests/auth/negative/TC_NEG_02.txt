@@ -1,0 +1,31 @@
+ID: TC_NEG_02
+
+TITLE: Access /api endpoint using Bearer token instead of x-api-key
+
+ENDPOINT:
+POST https://reqres.in/api/e-commerce-api-qa/login
+
+PRE-CONDITION:
+Bearer token is available
+
+STEPS:
+1. Send request to /api endpoint
+2. Add header: Authorization: Bearer <token>
+3. Do NOT include x-api-key header
+4. Execute request
+
+EXPECTED RESULT:
+- Status code 401 or 403
+- Error indicating incorrect authentication method
+- Message explaining that x-api-key is required
+
+ACTUAL RESULT:
+- Error: "missing_api_key"
+- Message: "The x-api-key header is required for this endpoint."
+- Details: Bearer token provided but not accepted
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/auth/negative/TC_NEG_02.png
