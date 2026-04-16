@@ -16,3 +16,6 @@ ACTUAL RESULT:
 
 STATUS:
 PASS
+
+EVIDENCE:
+- evidence/api-tests/auth/negative/TC_NEG_01.png
