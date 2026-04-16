@@ -1,3 +1,5 @@
+#Versão em português: README.pt-BR.md
+
 QA TESTING PROJECT
 
 OBJECTIVE
