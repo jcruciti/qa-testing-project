@@ -1,0 +1,45 @@
+TC_NEG_07
+
+TITLE: Register with non-defined user
+
+ENDPOINT:
+POST /register
+
+PRE-CONDITION:
+- API is available
+- Header Content-Type: application/json
+- Header x-api-key is required
+
+STEPS:
+1. Send POST request to /register
+2. Provide a valid format email that is not part of predefined users
+3. Include password field
+4. Execute request
+
+REQUEST BODY:
+{
+  "email": "joede.cruciti@gmail.com",
+  "password": "12E@456"
+}
+
+EXPECTED RESULT:
+- Status code 400 Bad Request
+- Error message: "Note: Only defined users succeed registration"
+- No user is created
+- Response schema is valid for error response
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 400 Bad Request
+- Response body:
+{
+    "error": "Note: Only defined users succeed registration"
+}
+- No user created
+- Error message matches expected result
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api/register/TC_NEG_07.png
