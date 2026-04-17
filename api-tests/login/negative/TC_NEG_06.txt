@@ -1,0 +1,46 @@
+TC_NEG_06
+
+TITLE: Login with invalid email
+
+ENDPOINT:
+POST /login
+
+PRE-CONDITION:
+- API is available
+- Header Content-Type: application/json
+- Header x-api-key is required
+- User does not exist in system for given email
+
+STEPS:
+1. Send POST request to /login
+2. Provide an invalid/unregistered email
+3. Provide a valid password format
+4. Execute request
+
+REQUEST BODY:
+{
+  "email": "joe@joecruciti.com.br",
+  "password": "123@456"
+}
+
+EXPECTED RESULT:
+- Status code 400 Bad Request (or 401 Unauthorized depending on API behavior)
+- Error message: "user not found"
+- No token is returned
+- Response schema is valid for error response
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 400 Bad Request
+- Response body:
+{
+    "error": "user not found"
+}
+- No token returned
+- Error message matches expected result
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-test/login/TC_NEG_06.png
