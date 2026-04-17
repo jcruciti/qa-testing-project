@@ -1,1 +1,48 @@
+TC_NEG_04
+
+TITLE: Login without email/username
+
+ENDPOINT:
+POST /login
+
+PRE-CONDITION:
+- User is registered
+- Header Content-Type: application/json
+- Header x-api-key is required
+- API is available
+
+STEPS:
+1. Send POST request to /login
+2. Omit the email (or username) field in request body
+3. Include password field only
+4. Execute request
+
+REQUEST BODY:
+{
+  "password": "any_password"
+}
+
+EXPECTED RESULT:
+- Status code 400 Bad Request
+- Error message: "Missing email or username"
+- No token is returned
+- Response schema is valid for error response
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 400 Bad Request
+- Response body:
+{
+    "error": "Missing email or username"
+}
+- No token is returned
+- Error message matches expected result
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api/login/negative/TC_NEG_04.png
+
+
 
