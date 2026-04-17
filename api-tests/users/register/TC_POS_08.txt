@@ -1,0 +1,60 @@
+TC_POS_08
+
+TITLE: Register with already existing valid email
+
+ENDPOINT:
+POST /register
+
+PRE-CONDITION:
+- API is available
+- Header Content-Type: application/json
+- Header x-api-key is required
+- User email is already registered in the system
+
+STEPS:
+1. Send POST request to /register
+2. Provide an already existing valid email
+3. Include a valid password
+4. Execute request
+
+REQUEST BODY:
+{
+  "email": "eve.holt@reqres.in",
+  "password": "any_password"
+}
+
+EXPECTED RESULT:
+- Status code 200 OK (based on ReqRes behavior)
+- Response contains id and token
+- Token is returned in the response
+- System does not create duplicate user
+- Response schema is valid for successful registration
+
+ACTUAL RESULT:
+- Status code 200 OK
+- Response body:
+{
+    "id": 4,
+    "token": "QpwL5tke4Pnpja7X4",
+    "_meta": {
+        "powered_by": "ReqRes",
+        "docs_url": "https://app.reqres.in/documentation",
+        "upgrade_url": "https://app.reqres.in/upgrade",
+        "example_url": "https://app.reqres.in/examples/notes-app",
+        "variant": "v1_b",
+        "message": "This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.",
+        "cta": {
+            "label": "Get started",
+            "url": "https://app.reqres.in/upgrade"
+        },
+        "context": "legacy_success"
+    }
+}
+- Token is returned in the response
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/users/register/TC_POS_08.png
+- evidence/api/register/TC_NEG_08/response.png
