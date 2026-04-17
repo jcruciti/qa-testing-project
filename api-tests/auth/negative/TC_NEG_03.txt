@@ -1,0 +1,29 @@
+ID: TC_NEG_03
+
+TITLE: Access endpoint with invalid API key
+
+ENDPOINT:
+POST https://reqres.in/api/e-commerce-api-qa/login
+
+PRE-CONDITION:
+An invalid or revoked API key is available
+
+STEPS:
+1. Send request to endpoint
+2. Add header: x-api-key: INVALID_KEY
+3. Execute request
+
+EXPECTED RESULT:
+- Status code 401 or 403
+- Error indicating invalid API key
+- Clear message explaining the issue
+
+ACTUAL RESULT:
+- Error: "invalid_api_key"
+- Message: "This API key is not recognized or has been revoked."
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/auth/negative/TC_NEG_03.png
