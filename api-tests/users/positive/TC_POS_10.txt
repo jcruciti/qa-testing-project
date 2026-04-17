@@ -1,0 +1,58 @@
+TC_POS_10
+
+TITLE: Get users list with default parameters
+
+ENDPOINT:
+GET /users
+
+PRE-CONDITION:
+- API is available
+- Header x-api-key is required (if applicable)
+
+STEPS:
+1. Send GET request to /users without query parameters
+2. Do not include page or delay parameters
+3. Execute request
+
+REQUEST:
+GET /users
+
+EXPECTED RESULT:
+- Status code 200 OK
+- Default page is returned (page = 1)
+- Response contains list of users
+- Response includes pagination fields:
+  - page
+  - per_page
+  - total
+  - total_pages
+- Response contains "data" array with user objects
+- Each user contains:
+  - id
+  - email
+  - first_name
+  - last_name
+  - avatar
+- Response schema is valid
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 200 OK
+- Response body:
+{
+    "page": 1,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [ ... users list ... ]
+}
+- Default page (1) returned as expected
+- Users list returned successfully
+- Response structure matches expected schema
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/users/positive/TC_POS_10.png
+- evidence/api/users/TC_POS_10/response.png
