@@ -1,1 +1,44 @@
+TC_NEG_05
 
+TITLE: Login without password
+
+ENDPOINT:
+POST /login
+
+PRE-CONDITION:
+- Header Content-Type: application/json
+- Header x-api-key is required
+- API is available
+
+STEPS:
+1. Send POST request to /login
+2. Include only the email field in request body
+3. Omit the password field
+4. Execute request
+
+REQUEST BODY:
+{
+  "email": "joe@joecruciti.com.br"
+}
+
+EXPECTED RESULT:
+- Status code 400 Bad Request
+- Error message: "Missing password"
+- No token is returned
+- Response schema is valid for error response
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 400 Bad Request
+- Response body:
+{
+    "error": "Missing password"
+}
+- No token returned
+- Error message matches expected result
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api/login/TC_NEG_05.png
