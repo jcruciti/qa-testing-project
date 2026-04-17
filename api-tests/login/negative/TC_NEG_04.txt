@@ -42,7 +42,7 @@ STATUS:
 PASS
 
 EVIDENCE:
-- evidence/api/login/negative/TC_NEG_04.png
+- evidence/api-tests/login/negative/TC_NEG_04.png
 
 
 
