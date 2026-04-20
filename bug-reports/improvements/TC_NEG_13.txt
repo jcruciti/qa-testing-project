@@ -1,0 +1,52 @@
+TC_NEG_13
+
+TITLE: Get users with invalid page parameter (string value)
+
+TYPE:
+Improvement / API Behavior Observation
+
+ENDPOINT:
+GET /users
+
+PRE-CONDITION:
+- API is available
+- No authentication required
+
+STEPS:
+1. Send GET request to /users?page=abc
+2. Execute request
+
+REQUEST:
+GET /users?page=abc
+
+EXPECTED RESULT:
+- Status code 400 Bad Request OR validation error
+- API should reject invalid query parameter type
+- Response should indicate "page must be a number"
+
+ACTUAL RESULT:
+- Status code 200 OK
+- API ignored invalid value ("abc")
+- Default page (page = 1) was returned
+- Full users list returned successfully
+- No error message or validation feedback
+
+IMPACT:
+- Invalid input is silently ignored
+- Consumers of the API may assume request was valid
+- Can lead to misleading test results or frontend logic issues
+- Lack of input validation reduces API contract reliability
+
+SUGGESTED IMPROVEMENT:
+- Implement strict validation for query parameters
+- Return 400 Bad Request for invalid "page" values
+- Provide clear error message:
+  "page must be a valid integer"
+- Document expected behavior in API specification
+
+NOTES:
+- Behavior is consistent with a lenient API design (mock API)
+- This may be intentional for demo purposes, but not ideal for production APIs
+
+STATUS:
+OPEN
