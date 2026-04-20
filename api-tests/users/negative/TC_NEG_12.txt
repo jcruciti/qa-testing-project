@@ -1,0 +1,44 @@
+TC_NEG_12
+
+TITLE: Get users with non-existent page
+
+ENDPOINT:
+GET /users
+
+PRE-CONDITION:
+- API is available
+
+STEPS:
+1. Send GET request to /users?page=999
+2. Execute request
+
+REQUEST:
+GET /users?page=999
+
+EXPECTED RESULT:
+- Status code 200 OK
+- Response contains empty "data" array
+- Pagination fields are present
+- Response schema is valid
+- API does not crash
+
+ACTUAL RESULT:
+- Status code 200 OK
+- Response body:
+{
+    "page": 999,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": []
+}
+- Empty list returned as expected
+- API handled request correctly
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/users/negative/TC_NEG_12.png
+
+
