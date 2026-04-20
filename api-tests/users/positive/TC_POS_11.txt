@@ -1,0 +1,53 @@
+TC_POS_11
+
+TITLE: Get users list with specific page parameter
+
+ENDPOINT:
+GET /users
+
+PRE-CONDITION:
+- API is available
+- Header x-api-key is required (if applicable)
+
+STEPS:
+1. Send GET request to /users?page=2
+2. Include query parameter page=2
+3. Execute request
+
+REQUEST:
+GET /users?page=2
+
+EXPECTED RESULT:
+- Status code 200 OK
+- Page returned is 2
+- Response contains list of users
+- Response includes pagination fields:
+  - page
+  - per_page
+  - total
+  - total_pages
+- Response contains "data" array
+- Data corresponds to page 2
+- Response schema is valid
+- Response time under 500ms
+
+ACTUAL RESULT:
+- Status code 200 OK
+- Response body:
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [ ... users list ... ]
+}
+- Page 2 returned as expected
+- Users list returned successfully
+- Response structure matches expected schema
+
+STATUS:
+PASS
+
+EVIDENCE:
+- evidence/api-tests/users/positive/TC_POS_11.png
+- evidence/api/users/TC_POS_11/response.png
