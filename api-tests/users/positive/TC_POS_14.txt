@@ -1,0 +1,64 @@
+TC_POS_14
+
+TITLE: Create user successfully via /api/users endpoint
+
+TYPE:
+Positive / API Behavior Validation
+
+ENDPOINT:
+POST /users
+
+PRE-CONDITION:
+- API is available
+- No authentication required
+
+STEPS:
+1. Send POST request to /users with valid payload
+2. Execute request
+
+REQUEST:
+POST /users
+
+Body:
+{
+  "name": "morpheus",
+  "job": "leader"
+}
+
+EXPECTED RESULT:
+- Status code 201 Created
+- User is successfully created
+- Response contains:
+  - name
+  - job
+  - id (auto-generated)
+  - createdAt (ISO 8601 timestamp)
+
+ACTUAL RESULT:
+- Status code 201 Created
+- Response body:
+{
+  "name": "morpheus",
+  "job": "leader",
+  "id": "37",
+  "createdAt": "2026-04-20T23:26:18.248Z"
+}
+
+IMPACT:
+- Confirms API correctly creates users
+- Validates proper response structure and data generation
+- Ensures backend is handling POST requests as expected
+
+SUGGESTED IMPROVEMENT:
+- Ensure id generation is unique and not predictable
+- Validate createdAt is always server-generated (not client-controlled)
+- Consider returning HTTP 201 with Location header for REST best practices
+
+NOTES:
+- Behavior aligns with typical mock API implementations (e.g., ReqRes style APIs)
+- Response format is consistent and stable for testing purposes
+
+STATUS:
+PASSED
+
+
