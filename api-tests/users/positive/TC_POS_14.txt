@@ -61,4 +61,7 @@ NOTES:
 STATUS:
 PASSED
 
-
+EVIDENCE:
+- evidence/api-tests/users/positive/TC_POS_14.png
+EVIDENCE:
+- evidence/api-tests/users/positive/TC_POS_11.png
