@@ -3,17 +3,27 @@
 QA TESTING PROJECT
 
 OBJECTIVE
-This project was created to simulate real-world QA activities, including manual testing, bug reporting, and API testing.
+This project simulates a real-world QA workflow by applying structured testing practices on a web application and a public API, focusing on defect identification, validation, and documentation.
 
-SYSTEMS TESTED
-- Web application: https://www.saucedemo.com
-- API: Reqres (https://reqres.in)
+SYSTEMS UNDER TEXT
+- Web Application: https://www.saucedemo.com
+- API: https://reqres.in
+
+SCOPE OF TESTING
+The testing scope includes validation of core user flows and API endpoints:
+- User authentication (valid and invalid scenarios)
+- Product selection and cart functionality
+- Checkout process
+- API endpoints validation (GET, POST)
 
 TEST ACTIVITIES
-- Creation of manual test cases
-- Execution of functional testing
-- Bug reporting and documentation
-- API testing using Postman
+- Designed and executed X+ manual test cases covering positive and negative scenarios
+- Performed functional and exploratory testing to identify unexpected behaviors
+- Reported X bugs with detailed reproduction steps, expected vs actual results, and evidence
+- Executed API tests using Postman, validating:
+    - Status codes
+    - Response structure
+    - Data consistency
 
 TOOLS USED
 - Postman
@@ -22,19 +32,20 @@ TOOLS USED
 - Jira
 
 PROJECT STRUCTURE
-- test-cases/: Manual test cases and scenarios
-- bug-reports/: Documented and detailed bug reports
-- api-tests/: Postman collections and test scripts
-- evidence/: Screenshots and API response evidence
+- test-cases/ → Structured test cases with clear steps and expected results
+- bug-reports/ → Documented defects with evidence and reproducibility steps
+- api-tests/ → Postman collections and test scripts
+- evidence/ → Screenshots and API response validation
 
-HOW TO RUN API TESTS
-1. Import the Postman collection into Postman
-2. Select the desired request collection
-3. Click "Run" using Collection Runner or execute manually
-4. Validate results in the "Tests" tab
-
+TEST STRATEGY
+The testing approach was based on:
+- Functional testing of critical user journeys
+- Negative testing to validate system robustness
+- Exploratory testing to uncover unexpected issues
+- API validation to ensure backend reliability
+  
 KEY LEARNINGS
-- Writing structured and clear test cases
-- Identifying, reproducing, and documenting bugs
-- Validating API responses and status codes
-- Organizing QA documentation in a professional structure
+- Improved ability to design structured and maintainable test cases
+- Gained experience in bug reporting aligned with industry standards
+- Strengthened API testing skills using Postman
+- Learned how to organize QA artifacts in a scalable and professional way
