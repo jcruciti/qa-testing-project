@@ -50,4 +50,3 @@ PASS
 
 EVIDENCE:
 - evidence/api-tests/users/positive/TC_POS_11.png
-- evidence/api/users/TC_POS_11/response.png
