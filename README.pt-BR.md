@@ -17,7 +17,7 @@ FERRAMENTAS UTILIZADAS
 - Postman
 - GitHub
 - DevTools do navegador
-- (Opcional) Jira
+- Jira
 
 ESTRUTURA DO PROJETO
 - test-cases/: Casos de teste e cenários manuais
