@@ -1,0 +1,84 @@
+TC_POS_15
+
+TITLE: Update user successfully via PATCH /users/:userid with x-api-key header
+
+TYPE:
+Positive / API Behavior Validation
+
+ENDPOINT:
+PATCH /users/:userid
+
+PRE-CONDITION:
+- API is available
+- User with valid ID exists
+- Valid x-api-key is available
+- No authentication required beyond API key
+
+STEPS:
+1. Add header "x-api-key" with a valid value
+2. Send PATCH request to /users/:userid with valid payload
+3. Execute request
+
+REQUEST:
+PATCH /users/:userid
+
+Headers:
+x-api-key: pub_5a9bf1f7862fc018e0b516db4d35e49a9241dde492754218ee6cdad0a4fda6b6
+
+Body:
+{
+  "name": "morpheus",
+  "job": "zion resident"
+}
+
+EXPECTED RESULT:
+- Status code 200 OK
+- User is successfully updated
+- Response contains:
+  - name
+  - job
+  - updatedAt (ISO 8601 timestamp)
+
+ACTUAL RESULT:
+- Status code 200 OK
+- Response body:
+{
+  "name": "morpheus",
+  "job": "zion resident",
+  "updatedAt": "2026-04-21T14:35:56.170Z",
+  "_meta": {
+    "powered_by": "ReqRes",
+    "docs_url": "https://app.reqres.in/documentation",
+    "upgrade_url": "https://app.reqres.in/upgrade",
+    "example_url": "https://app.reqres.in/examples/notes-app",
+    "variant": "v1_b",
+    "message": "This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.",
+    "cta": {
+      "label": "Get started",
+      "url": "https://app.reqres.in/upgrade"
+    },
+    "context": "legacy_success"
+  }
+}
+
+IMPACT:
+- Confirms API requires authentication via API key
+- Validates successful update when proper header is provided
+- Reinforces importance of header validation in API testing
+
+SUGGESTED IMPROVEMENT:
+- Return 401 Unauthorized when x-api-key is missing or invalid
+- Document authentication requirements clearly
+- Standardize authentication method (e.g., Bearer token)
+
+NOTES:
+- x-api-key is mandatory for request authorization
+- API still behaves as a mock (no real persistence)
+
+STATUS:
+PASSED
+
+EVIDENCE:
+- File: TC_POS_15_response.png
+- Location: /evidence/TC_POS_15_response.png
+- Description: Screenshot showing request with x-api-key header and 200 OK response
