@@ -79,6 +79,4 @@ STATUS:
 PASSED
 
 EVIDENCE:
-- File: TC_POS_15_response.png
-- Location: /evidence/TC_POS_15_response.png
-- Description: Screenshot showing request with x-api-key header and 200 OK response
+- evidence/api-tests/users/positive/TC_POS_15.png
