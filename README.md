@@ -19,7 +19,6 @@ TOOLS USED
 - Postman  
 - GitHub  
 - Browser DevTools  
-- (Optional) Jira  
 
 PROJECT STRUCTURE  
 - test-cases/: Test cases and manual scenarios  
